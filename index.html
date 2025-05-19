@@ -64,5 +64,33 @@
         </button>
       </div>
     </header>
+    <main class="content">
+      <h1 class="visually-hidden">Tsar-Fitness Complex</h1>
+      <!--h1 добавили исключительно для семантичности-->
+      <section class="banner">
+        <h2 class="visually-hidden">Upcoming events</h2>
+        <!--h2 добавили исключительно для семантичности-->
+        <div class="banner-body">
+          <div class="banner-info">
+            New event </br>
+            coming up / <time datetime="06-07">June 7</time>&nbsp;-&nbsp;<time datetime="06-13">13</time> <!--Через &nbsp; задаем пробелы, т.к. у CSS это у нас flex-элементы и между ними обычные пробелы игнорируются-->
+          </div>
+          <h3 class="banner-title">Crossfit</h3>
+        </div>
+        <div class="banner-pagination">
+          <ul class="banner-pagination-list">
+            <li class="banner-pagination-item">
+              <button class="banner-pagination-button" type="button"></button>
+            </li>
+            <li class="banner-pagination-item">
+              <button class="banner-pagination-button" type="button"></button>
+            </li>
+            <li class="banner-pagination-item">
+              <button class="banner-pagination-button is-current" type="button"></button>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
