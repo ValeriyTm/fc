@@ -215,6 +215,7 @@ svg * {
 /*Задаепм глобальные переменные*/
 :root {
   --color-dark: #000000;
+  --color-dark-alternate: #131619;
   --color-light: #ffffff;
   --color-dark-grey: #404040;
   --color-light-grey: #c4c4c4;
@@ -244,6 +245,19 @@ body {
   Чтобы при box-sizing border-box ширина, заданная в max-width, соответствовала значению ширины контента по макету, необходимо плюсовать в calc к container-width внутренние горизонтальные отступы с каждой стороны (container-padding-x * 2). */
   margin-inline: auto;
   padding-inline: var(--container-padding-x);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
 }
 
 h1,
@@ -284,6 +298,7 @@ h6 {
   column-gap: 20px;
   max-width: 1920px; /*Чтобы на больших экранах header не разъехался сильно широко*/
   padding-inline: 32px; /*Задаем внутренние отступы по оси x от краев экрана*/
+  background-color: var(--color-dark-alternate);
 }
 
 .header-logo {
@@ -331,7 +346,7 @@ a:hover {
 .header-menu-link.is-current::after {
   content: "";
   width: 5px;
-  height: 5px;
+  aspect-ratio: 1;
   background-color: currentColor;
   border-radius: 50%;
 }
@@ -346,10 +361,10 @@ a:hover {
   justify-content: center;
   align-items: center;
   width: 40px;
-  height: 40px;
+  aspect-ratio: 1;
   background-color: transparent;
   border: var(--border);
-  border-radius: var(--border-radius);
+  border-radius: 50%;
 }
 
 .abc {
