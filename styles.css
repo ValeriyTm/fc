@@ -269,12 +269,12 @@ h5,
 h6 {
   font-weight: 700;
   text-transform: uppercase;
+  color: var(--color-light);
 }
 
 .title-medium {
   font-size: clamp(20px, 2.08vw, 40px);
   line-height: 1.3;
-  color: var(--color-light);
 }
 
 .button {
@@ -425,6 +425,7 @@ p:not([class]):not(:last-child) {
 
 .banner-body {
   text-transform: uppercase;
+  padding-inline: 70px;
 }
 
 .banner-info {
@@ -453,11 +454,11 @@ p:not([class]):not(:last-child) {
 }
 
 .banner-title {
-  font-size: min(
-    18.75vw,
-    360px
-  ); /*Ограничили максимальный размер в 360px; в остальных случаях размер 18.75vw - это значение посчитали из макета, поделив 360px на 1920px (ширина макета) и на 100 умножили*/
+  font-size: min(14.58vw, 280px);
+  /*Тут поставил размер шрифта не как в макете.*/
   line-height: 1;
+  display: inline-block;
+  width: 100%;
 }
 
 .banner-pagination-list {
@@ -508,7 +509,7 @@ p:not([class]):not(:last-child) {
   display: flex;
   justify-content: start;
   align-items: center;
-  column-gap: clamp(30px, 10.42vw, 200px);
+  column-gap: clamp(30px, 13vw, 250px);
 }
 
 .motivation-card-image {
@@ -562,11 +563,50 @@ p:not([class]):not(:last-child) {
   margin-bottom: 37px;
 }
 
+.training-types {
+  max-width: 1920px;
+  margin-inline: auto;
+  padding-top: 70px;
+  padding-bottom: 120px;
+  position: relative;
+  background-color: var(--color-dark);
+  /*Цвет фона и позиция в сумме делают так, что изображение с верхней секции не налазит на эту секцию*/
+}
+
+.training-types-list {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 60px;
+}
+
+.training-types-item {
+  --trainingTypesItemBgIconSize: 80px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 32px;
+  text-align: center;
+  padding-top: var(--trainingTypesItemBgIconSize);
+  background: url(/icons/arrow-for-top.svg) 100% 0 /
+    var(--trainingTypesItemBgIconSize) no-repeat;
+}
+
+.training-types-item-title {
+  font-size: 16px;
+}
+
 /* Далее медиазапросы */
 
 @media (max-width: 1919px) {
   .motivation-card-image {
     margin-block: -20px; /*Уменьшили вылезание картинок за пределы контейнера для экранов, который меньше того, что в макете. Чтобы картинка не перекрывала элементы слайдера*/
+  }
+}
+
+@media (max-width: 1280px) {
+  .training-types-list {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -648,5 +688,19 @@ p:not([class]):not(:last-child) {
 
   .motivation-card-description:not(:last-child) {
     margin-bottom: 20px;
+  }
+
+  .training-types-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .training-types-item {
+    --trainingTypesItemBgIconSize: 50px;
+    row-gap: 10px;
+  }
+
+  .training-types-image {
+    max-width: 120px;
   }
 }
