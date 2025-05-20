@@ -271,6 +271,12 @@ h6 {
   text-transform: uppercase;
 }
 
+.title-medium {
+  font-size: clamp(20px, 2.08vw, 40px);
+  line-height: 1.3;
+  color: var(--color-light);
+}
+
 .button {
   display: inline-flex; /*Делаем строчным, чтобы задать высоту*/
   height: 38px;
@@ -281,6 +287,7 @@ h6 {
   line-height: 2;
   letter-spacing: 1.2px;
   text-transform: uppercase;
+  text-decoration: none; /*Убираем подчеркивание для текста внутри кнопок, являющихся ссылками*/
   background-color: var(--color-light);
   border: none;
   border-radius: var(--border-radius);
@@ -290,6 +297,31 @@ h6 {
 .button:hover {
   background-color: var(--color-light-grey);
   cursor: default;
+}
+
+.button.transparent {
+  height: var(--input-height);
+  padding-left: 31px;
+  padding-right: 80px;
+  background-color: transparent;
+  border: var(--border);
+  position: relative; /*Задали relative, т.к. в псведоэлементе after будем позиционировать иконку через absolute, а у него родитель должен иметь relative*/
+}
+
+.button.transparent::after {
+  content: "";
+  height: 100%;
+  aspect-ratio: 1;
+  background: url(/icons/arrow-inclined.svg) center/70% no-repeat;
+  border: var(--border);
+  border-radius: 50%;
+  position: absolute;
+  right: 0; /*Задали отступ 0px от правого края*/
+}
+
+.button.transparent:hover {
+  color: var(--color-dark);
+  background-color: var(--color-light-grey);
 }
 
 .header {
@@ -328,6 +360,14 @@ a {
 
 a:hover {
   color: var(--color-light-grey);
+}
+
+p {
+  margin-block: 0;
+}
+
+p:not([class]):not(:last-child) {
+  margin-bottom: 24px; /*Добавляем отступ снизу на случай, если будут добавлены ещё параграфы в родительский элемент. Это для тех параграфов, для которых нет класса и, возможно, в них будет добавлять текст уже контент-менеджер*/
 }
 
 .header-menu-link {
@@ -456,7 +496,79 @@ a:hover {
   border-color: var(--color-light-grey);
 }
 
+.motivation-item:nth-child(even) {
+  background-color: var(--color-dark-alternate);
+}
+
+.motivation-item:nth-child(even) .motivation-card {
+  flex-direction: row-reverse;
+}
+
+.motivation-card {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  column-gap: clamp(30px, 10.42vw, 200px);
+}
+
+.motivation-card-image {
+  margin-block: -60px; /*Заставляем изображения вылезти за пределы контейнера*/
+}
+
+.motivation-card-body {
+  padding-left: 35px;
+}
+
+.backdrop-title {
+  position: relative;
+  z-index: 2;
+}
+
+.backdrop-title::before {
+  content: "";
+  display: block;
+  width: 26px;
+  aspect-ratio: 1;
+  position: absolute;
+  right: calc(
+    100% + 8px
+  ); /*Сместили иконку на 8px от правого края родителького
+  элемента, которым является текст с классом backdrop-title*/
+  background: url(/icons/cross.svg) center/contain no-repeat;
+}
+
+.backdrop-title::after {
+  content: attr(data-title);
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-dark-grey);
+  text-stroke: 1px var(--color-dark-grey);
+  font-size: 2.8em;
+  font-family: var(--font-family-accent);
+  position: absolute;
+  z-index: -1;
+  top: -0.45em;
+  left: -0.6em;
+}
+
+.motivation-card-description {
+  max-width: 400px;
+}
+
+.motivation-card-title:not(:last-child) {
+  margin-bottom: 14px;
+}
+
+.motivation-card-description:not(:last-child) {
+  margin-bottom: 37px;
+}
+
 /* Далее медиазапросы */
+
+@media (max-width: 1919px) {
+  .motivation-card-image {
+    margin-block: -20px; /*Уменьшили вылезание картинок за пределы контейнера для экранов, который меньше того, что в макете. Чтобы картинка не перекрывала элементы слайдера*/
+  }
+}
 
 @media (max-width: 1024px) {
   .header {
@@ -478,6 +590,16 @@ a:hover {
 
   .banner {
     row-gap: 10px;
+  }
+
+  .motivation-card {
+    padding-block: 50px;
+  }
+
+  .motivation-card-image {
+    max-width: 30%;
+    height: auto; /*Чтобы высота не искажалась при сжатии. Хотя у меня и без этого св-ва соотношение сторон сохранялось*/
+    margin-block: 0;
   }
 }
 
@@ -508,5 +630,23 @@ a:hover {
 
   .banner-info::before {
     margin-right: 10px;
+  }
+
+  .motivation-card,
+  .motivation-item:nth-child(even) .motivation-card {
+    flex-direction: column-reverse;
+  }
+
+  .motivation-card {
+    padding-block: 30px;
+    row-gap: 30px;
+  }
+
+  .motivation-card-image {
+    max-width: 60%;
+  }
+
+  .motivation-card-description:not(:last-child) {
+    margin-bottom: 20px;
   }
 }
