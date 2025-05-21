@@ -246,6 +246,11 @@ body {
   padding-inline: var(--container-padding-x);
 }
 
+.container-wide {
+  max-width: 1920px;
+  margin-inline: auto;
+}
+
 .visually-hidden {
   position: absolute !important;
   width: 1px !important;
@@ -552,6 +557,7 @@ p:not([class]):not(:last-child) {
   z-index: -1;
   top: -0.45em;
   left: -0.6em;
+  line-height: 1; /*Чтобы высота псевдоэлемента была равна высоте его текста*/
 }
 
 .motivation-card-description {
@@ -703,7 +709,40 @@ p:not([class]):not(:last-child) {
 }
 
 .accession {
-  background-color: var(--color-dark);
+  background-color: var(--color-dark-alternate);
+}
+
+.location {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.location-body {
+  padding: 80px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center; /*Потребуется при адаптации*/
+}
+
+.location-title:not(:last-child) {
+  margin-bottom: 14px;
+}
+
+.location-description {
+  max-width: 490px;
+}
+
+.location-description:not(:last-child) {
+  margin-bottom: 37px;
+}
+
+.location-map-image {
+  /* padding-left: 10px; */
+  width: 100%;
+  max-width: 960px;
+  min-height: auto;
 }
 
 /* Далее медиазапросы */
@@ -717,6 +756,11 @@ p:not([class]):not(:last-child) {
 @media (max-width: 1280px) {
   .training-types-list {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .location {
+    display: flex;
+    flex-direction: column-reverse;
   }
 }
 
@@ -838,5 +882,13 @@ p:not([class]):not(:last-child) {
 
   .banner-body {
     padding-inline: 20px;
+  }
+
+  .location-body {
+    padding-block: 40px;
+  }
+
+  .location-description:not(:last-child) {
+    margin-bottom: 20px;
   }
 }
