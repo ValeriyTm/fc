@@ -241,9 +241,7 @@ body {
 
 .container {
   max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
-  /*По умолчанию в браузере если задали width 1300px и padding-inline 15px, то финальная ширина элемента будет равна 1330px.
-  Если же мы установим box-sizing как border-box (а это делают в 99.99% проектов), то при задании тех же самых значений (width 1300px и padding-inline 15px) финальная ширина элемента будет равна 1300px. А внутренние горизонтальные отступы будут «толкать» контент слева и справа на 15px с каждой стороны и по итогу сам контент будет ограничен шириной в 1270px. 
-  Чтобы при box-sizing border-box ширина, заданная в max-width, соответствовала значению ширины контента по макету, необходимо плюсовать в calc к container-width внутренние горизонтальные отступы с каждой стороны (container-padding-x * 2). */
+  /*У нас border-box, поэтому content = width - padding*2 по умолчанию. Но мы хотим content=width */
   margin-inline: auto;
   padding-inline: var(--container-padding-x);
 }
@@ -277,6 +275,10 @@ h6 {
   line-height: 1.3;
 }
 
+.title-big {
+  font-size: clamp(24px, 3.12vw, 60px);
+}
+
 .button {
   display: inline-flex; /*Делаем строчным, чтобы задать высоту*/
   height: 38px;
@@ -304,6 +306,7 @@ h6 {
   padding-left: 31px;
   padding-right: 80px;
   background-color: transparent;
+  color: var(--color-light);
   border: var(--border);
   position: relative; /*Задали relative, т.к. в псведоэлементе after будем позиционировать иконку через absolute, а у него родитель должен иметь relative*/
 }
@@ -596,6 +599,113 @@ p:not([class]):not(:last-child) {
   font-size: 16px;
 }
 
+.accession-video-wrapper {
+  padding: 150px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url(/images/gym.jpg) center/cover no-repeat
+    var(--color-dark-alternate); /*В конце запасной цвет, если картинка не отобразится*/
+}
+
+.accession-body {
+  padding-bottom: 150px;
+}
+
+.accession-title {
+  font-size: clamp(40px, 5.2vw, 100px);
+  line-height: 1;
+  text-align: center;
+  position: relative;
+  margin-top: -0.4em;
+}
+
+.accession-title::after {
+  content: "";
+  height: 0.71em;
+  aspect-ratio: 1;
+  display: inline-block;
+  background: url(/icons/arrow.svg) center/contain no-repeat;
+  scale: 1 -1;
+  margin-left: 0.14em;
+}
+
+.accession-title:not(:last-child) {
+  margin-bottom: 130px;
+}
+
+.accession-form-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 7px;
+}
+
+.accession-form-header:not(:last-child) {
+  margin-bottom: 52px;
+}
+
+.accession-form-title {
+}
+
+.backdrop-title.centered::after {
+  left: 50%;
+  translate: -50% 0;
+  top: -0.6em;
+}
+
+.accession-form-subtitle {
+  font-size: 20px;
+  line-height: 1.65;
+  text-transform: uppercase;
+  color: var(--color-light);
+  text-align: center;
+}
+
+.input {
+  height: var(--input-height);
+  padding-inline: 25px;
+  width: 100%;
+  background-color: transparent;
+  border: 1px solid var(--color-light-grey);
+  border-radius: var(--border-radius);
+  color: var(--color-light);
+}
+
+.input::placeholder {
+  color: var(--color-light-grey);
+}
+
+.input:hover {
+  border-color: var(--color-light);
+}
+
+.input:focus {
+  outline: none;
+  color: var(--color-dark);
+  background-color: var(--color-light-grey);
+}
+
+.accession-form-input {
+  max-width: 400px;
+}
+
+.accession-form-body {
+  display: flex;
+  justify-content: center;
+  column-gap: 20px;
+}
+
+.accession-video {
+  width: 100%;
+  max-width: 960px;
+  min-height: auto;
+}
+
+.accession {
+  background-color: var(--color-dark);
+}
+
 /* Далее медиазапросы */
 
 @media (max-width: 1919px) {
@@ -640,6 +750,14 @@ p:not([class]):not(:last-child) {
     max-width: 30%;
     height: auto; /*Чтобы высота не искажалась при сжатии. Хотя у меня и без этого св-ва соотношение сторон сохранялось*/
     margin-block: 0;
+  }
+
+  .accession-body {
+    padding-bottom: 80px;
+  }
+
+  .accession-title:not(:last-child) {
+    margin-bottom: 80px;
   }
 }
 
@@ -702,5 +820,23 @@ p:not([class]):not(:last-child) {
 
   .training-types-image {
     max-width: 120px;
+  }
+
+  .accession-title:not(:last-child) {
+    margin-bottom: 40px;
+  }
+
+  .accession-form-subtitle {
+    font-size: 16px;
+  }
+
+  .accession-form-body {
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+  }
+
+  .banner-body {
+    padding-inline: 20px;
   }
 }
