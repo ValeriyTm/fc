@@ -165,7 +165,7 @@
             <form class="accession-form">
               <header class="accession-form-header">
                 <h3 class="accession-form-title backdrop-title centered title-big" data-title="вперед!">Начать здесь</h3>
-              <div class="accession-form-subtitle">Заполни форму ниже, чтобы начать сейчас</div>
+              <div class="accession-form-subtitle section-description">Заполни форму ниже, чтобы начать сейчас</div>
               </header>
               <div class="accession-form-body">
                 <label for="username" class="visually-hidden">Имя</label>
@@ -187,7 +187,92 @@
         <a href="" class="location-button button transparent">Смотреть</a>
         </div>
        </section>
-       
+       <section class="family">
+        <header class="family-header container">
+          <h2 class="family-title title-big backdrop-title centered" data-title="часть">Будь частью спортивной семьи</h2>
+        <div class="family-description section-description">
+          <p>Тренировки помогают вам чувствовать себя увереннее и думать смелее!</p>
+        </div>
+        </header>
+        <div class="family-body container-wide">
+          <img src="/images/family/family-5.jpg" alt="Sportsman" width="414" height="479" class="family-image">
+          <img src="/images/family/family-4.jpg" alt="Sportsman" width="744" height="479" class="family-image">
+          <img src="/images/family/family-3.jpg" alt="Sportsman" width="396" height="479" class="family-image">
+          <img src="/images/family/family-2.jpg" alt="Sportsman" width="396" height="479" class="family-image">
+          <img src="/images/family/family-1.jpg" alt="Sportsman" width="414" height="479" class="family-image">
+        </div>
+       </section>
+       <section class="calculate">
+        <div class="calculate-inner container">
+          <div class="calculate-body">
+            <h2 class="calculate-title title-medium backdrop-title" data-title="ИМТ">рассчитай имт</h2>
+            <div class="calculate-description">
+              <p>ИМТ позволяет судить о том, является ли масса недостаточной, нормальной или избыточной</p>
+            </div>
+            <form class="calculate-form">
+            <div class="calculate-form-body">
+              <label for="height" class="visually-hidden">Рост</label>
+              <input type="number" class="calculate-input input" id="height" placeholder="Рост, см">
+              
+              <label for="weight" class="visually-hidden">Вес</label>
+              <input type="number" class="calculate-input input" id="weight" placeholder="Вес, кг">
+              
+              <label for="age" class="visually-hidden">Возраст</label>
+              <input type="number" class="calculate-input input" id="age" placeholder="Возраст">
+              
+              <label for="gender" class="visually-hidden">Пол</label>
+              <select id="gender" class="calculate-input input" required>
+                <option value="" disabled selected>Пол</option>
+                <option value="male">Мужчина</option>
+                <option value="female">Женщина</option>
+              </select>
+
+              <label for="activity-factor" class="visually-hidden">Активность</label>
+              <select id="activity-factor" class="calculate-input input wide" required>
+                <option value="" disabled selected>Двигательная активность</option>
+                <option value="male">Низкая</option>
+                <option value="male">Умеренная</option>
+                <option value="female">Высокая</option>
+              </select>
+            </div>
+            <button class="calculate-button button transparent" type="submit">Рассчитать</button>
+            </form>
+          </div>
+          <div class="calculate-table-wrapper">
+            <table class="calculate-table">
+              <thead>
+                <tr>
+                  <th>ИМТ</th>
+                  <th>Статус</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Ниже 18.5</td>
+                  <td>Дефицит массы</td>
+                </tr>
+                 <tr>
+                  <td>18.5-24.9</td>
+                  <td>Нормальный вес</td>
+                </tr>
+                 <tr>
+                  <td>25.0-29.9</td>
+                  <td>Лишний вес</td>
+                </tr>
+                 <tr>
+                  <td>30.0 и выше</td>
+                  <td>Ожирение</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="2"><b>ИМТ</b> - это индекс массы тела</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+       </section>
     </main>
   </body>
 </html>
