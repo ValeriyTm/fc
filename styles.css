@@ -322,7 +322,8 @@ h6 {
   content: "";
   height: 100%;
   aspect-ratio: 1;
-  background: url(/icons/arrow-inclined.svg) center/70% no-repeat;
+  background: url(https://valeriytm.github.io/fc/icons/arrow-inclined.svg)
+    center/70% no-repeat;
   border: var(--border);
   border-radius: 50%;
   position: absolute;
@@ -460,7 +461,8 @@ p:not([class]):not(:last-child) {
   ); /*Размер стрелки будет не менее 60px и не более 194px; в остальных случаях от будет равен 10% от ширины viewport, что вычислили из макета, поделив 194 на 1920, и умножив на 100*/
   aspect-ratio: 1;
   margin-right: 30px;
-  background: url(/icons/arrow.svg) center/contain no-repeat; /*Путь, центровка, заполнение всего доступного пространства с сохранением пропорций, без повторений*/
+  background: url(https://valeriytm.github.io/fc/icons/arrow.svg) center/contain
+    no-repeat; /*Путь, центровка, заполнение всего доступного пространства с сохранением пропорций, без повторений*/
 }
 
 .banner-title {
@@ -545,7 +547,8 @@ p:not([class]):not(:last-child) {
     100% + 8px
   ); /*Сместили иконку на 8px от правого края родителького
   элемента, которым является текст с классом backdrop-title*/
-  background: url(/icons/cross.svg) center/contain no-repeat;
+  background: url(https://valeriytm.github.io/fc/icons/cross.svg) center/contain
+    no-repeat;
 }
 
 .backdrop-title::after {
@@ -599,7 +602,7 @@ p:not([class]):not(:last-child) {
   row-gap: 32px;
   text-align: center;
   padding-top: var(--trainingTypesItemBgIconSize);
-  background: url(/icons/arrow-for-top.svg) 100% 0 /
+  background: url(https://valeriytm.github.io/fc/icons/arrow-for-top.svg) 100% 0 /
     var(--trainingTypesItemBgIconSize) no-repeat;
 }
 
@@ -612,8 +615,8 @@ p:not([class]):not(:last-child) {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url(/images/gym.jpg) center/cover no-repeat
-    var(--color-dark-alternate); /*В конце запасной цвет, если картинка не отобразится*/
+  background: url(https://valeriytm.github.io/fc/images/gym.jpg) center/cover
+    no-repeat var(--color-dark-alternate); /*В конце запасной цвет, если картинка не отобразится*/
 }
 
 .accession-body {
@@ -633,7 +636,8 @@ p:not([class]):not(:last-child) {
   height: 0.71em;
   aspect-ratio: 1;
   display: inline-block;
-  background: url(/icons/arrow.svg) center/contain no-repeat;
+  background: url(https://valeriytm.github.io/fc/icons/arrow.svg) center/contain
+    no-repeat;
   scale: 1 -1;
   margin-left: 0.14em;
 }
@@ -976,7 +980,8 @@ input[type="number"] {
   height: 0.74em;
   aspect-ratio: 1;
   display: inline-block;
-  background: url(/icons/arrow.svg) center/contain no-repeat;
+  background: url(https://valeriytm.github.io/fc/icons/arrow.svg) center/contain
+    no-repeat;
   scale: -1 1;
   margin-left: 0.5em;
 }
@@ -995,7 +1000,8 @@ input[type="number"] {
   right: 0;
   height: 100%;
   aspect-ratio: 1;
-  background: url(/icons/arrow-inclined.svg) center/70% no-repeat;
+  background: url(https://valeriytm.github.io/fc/icons/arrow-inclined.svg)
+    center/70% no-repeat;
   border: var(--border);
   border-radius: 50%;
 }
