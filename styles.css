@@ -313,10 +313,12 @@ h6 {
   background-color: transparent;
   color: var(--color-light);
   border: var(--border);
-  position: relative; /*Задали relative, т.к. в псведоэлементе after будем позиционировать иконку через absolute, а у него родитель должен иметь relative*/
+  position: relative; /*Задали relative, т.к. в псведоэлементе after будем позиционировать иконку 
+  через absolute, а у него родитель должен иметь relative*/
 }
 
 .button.transparent::after {
+  /*Тут задаем иконку*/
   content: "";
   height: 100%;
   aspect-ratio: 1;
@@ -678,20 +680,26 @@ p:not([class]):not(:last-child) {
   color: var(--color-light);
 }
 
-.input::placeholder,
-select.input:invalid {
+.input::placeholder {
   color: var(--color-light-grey);
-  /*Placeholder для input делаем серого цвета. Также этот цвет делаем для не выбранных элементов select*/
+  /*Placeholder для input делаем светло-серого цвета*/
 }
 
 .input:hover {
   border-color: var(--color-light);
+  /*При наведении на полее ввода курсором граница поля окрашивается в белый цвет*/
 }
 
 .input:focus {
   outline: none;
-  color: var(--color-dark);
-  background-color: var(--color-light-grey);
+  color: var(--color-light);
+  background-color: var(--color-dark-grey);
+  /*При выборе поля ввода оно становится светло-серым, а вводимый текст ,белым*/
+}
+
+select.input:invalid {
+  color: var(--color-light-grey);
+  /*Окрашивает текст меню в светло-серый, когда ничего не выбрано*/
 }
 
 .accession-form-input {
